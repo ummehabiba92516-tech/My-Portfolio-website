@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard — Contact Messages</title>
+  <link rel="stylesheet" href="style/style.css" />
+</head>
+<body class="preview-page">
+  <header class="preview-header">
+    <a href="index.html" class="back-button">← Back to Portfolio</a>
+    <h1>Contact Messages</h1>
+  </header>
+  <main class="preview-main">
+    <section class="preview-hero">
+      <h2>Admin dashboard for inbound inquiries</h2>
+      <p>Review all contact messages submitted through the portfolio website. Messages are stored securely in MongoDB.</p>
+    </section>
+    <section class="contact-panel admin-panel">
+      <div class="admin-actions">
+        <span class="section-title">Inbox</span>
+        <button id="refresh-button" class="btn-secondary">Refresh</button>
+      </div>
+      <div class="status-message" id="admin-status">Loading messages...</div>
+      <div class="admin-table-wrapper">
+        <table class="admin-table" id="admin-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Message</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <script src="javascript/admin.js"></script>
+</body>
+</html>
