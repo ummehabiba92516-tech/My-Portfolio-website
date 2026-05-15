@@ -1,8 +1,17 @@
 /* Modern portfolio styles */
 :root {
+  --bg: #021428;
+  --bg-2: #072840;
+  --surface: rgba(255,255,255,0.03);
+  --muted: #b9c5e5;
+  --text: #eef6ff;
+  --accent-1: #7b61ff; /* purple */
+  --accent-2: #4dd2c0; /* teal */
+  --accent-grad: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+  --glass: rgba(255,255,255,0.04);
   color-scheme: dark;
-  color: #e9ecef;
-  background: #0b1220;
+  color: var(--text);
+  background: var(--bg);
   font-family: Inter, ui-sans-serif, system-ui, sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -19,15 +28,15 @@ html, body {
 }
 
 body {
-  background: radial-gradient(circle at top left, rgba(88, 143, 255, 0.18), transparent 26%),
-              radial-gradient(circle at bottom right, rgba(96, 229, 255, 0.14), transparent 30%),
-              #0b1220;
-  color: #f4f7ff;
+  background: radial-gradient(circle at top left, rgba(123,97,255,0.12), transparent 28%),
+              radial-gradient(circle at bottom right, rgba(77,210,192,0.10), transparent 32%),
+              linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+  color: var(--text);
   line-height: 1.6;
 }
 
 a {
-  color: #7cc7ff;
+  color: var(--accent-2);
   text-decoration: none;
 }
 
@@ -65,8 +74,11 @@ header.site-header {
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 50%;
-  border: 3px solid rgba(124, 199, 255, 0.32);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.2);
+  border: 3px solid transparent;
+  background-image: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0)), var(--accent-grad);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  box-shadow: 0 22px 60px rgba(11,14,40,0.6);
 }
 
 nav {
@@ -77,10 +89,11 @@ nav {
 }
 
 nav .brand {
-  font-size: 1.05rem;
+  font-size: 1.35rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
+  color: var(--text);
 }
 
 nav .nav-links {
@@ -129,14 +142,16 @@ nav .nav-links {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #4f8cff, #4dc6ff);
-  color: #0d1328;
+  background: var(--accent-grad);
+  color: white;
+  box-shadow: 0 8px 30px rgba(75,50,200,0.18);
 }
 
 .btn-secondary {
-  color: #e9ecef;
-  border-color: rgba(255,255,255,0.18);
-  background: rgba(255,255,255,0.04);
+  color: var(--text);
+  border-color: rgba(255,255,255,0.12);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  backdrop-filter: blur(6px);
 }
 
 .btn-primary:hover, .btn-secondary:hover {
@@ -177,10 +192,16 @@ nav .nav-links {
 }
 
 .card-slab {
-  background: rgba(8, 15, 28, 0.86);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
   border-radius: 1.5rem;
   padding: 1.25rem;
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-slab:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(13,18,40,0.6), 0 6px 20px rgba(123,97,255,0.06);
 }
 
 .card-slab h3 {
@@ -236,8 +257,8 @@ nav .nav-links {
 }
 
 .stat-card {
-  background: rgba(91, 120, 227, 0.12);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: linear-gradient(180deg, rgba(123,97,255,0.07), rgba(77,210,192,0.04));
+  border: 1px solid rgba(255,255,255,0.04);
   border-radius: 1.5rem;
   padding: 1.5rem;
 }
@@ -256,11 +277,17 @@ nav .nav-links {
   position: relative;
   padding: 1.75rem;
   border-radius: 1.75rem;
-  background: linear-gradient(180deg, rgba(22, 34, 64, 0.92), rgba(12, 16, 32, 0.98));
-  border: 1px solid rgba(255,255,255,0.08);
+  background: linear-gradient(180deg, rgba(10,14,28,0.9), rgba(6,9,20,0.95));
+  border: 1px solid rgba(255,255,255,0.06);
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px rgba(3,8,20,0.6), 0 8px 30px rgba(123,97,255,0.06);
 }
 
 .project-card h3 {
@@ -396,7 +423,7 @@ textarea {
 footer {
   padding: 2rem 0 3rem;
   text-align: center;
-  color: #8e9bbf;
+  color: #9fb5d9;
 }
 
 @media (max-width: 960px) {
